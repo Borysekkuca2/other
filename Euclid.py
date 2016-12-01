@@ -24,17 +24,31 @@ def gcd(x, y):
         larger = y
         smaller = x
     
-    # define the divisor
+    # define the remainder
     remainder = larger - ((larger // smaller) * smaller)
 
-    # this while loop corresponds to the steps in the Euclidean Algorithm. For details of how the algorithm works, see here: https://www.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    # The Euclidean Algorithm begins here. For more details, see: https://www.math.rutgers.edu/~greenfie/gs2004/euclid.html
+    # In a given step of the algorithm, the larger number is divided by the smaller number to get the remainder.
+    # Then, the smaller number becomes the new larger number, and the remainder becomes the new smaller number.
+    # The algorithm ends when the smaller number divides the larger (equivalently, when the remainder is zero).
+    # gcd is equal to the smaller number in the last step.
+
+    # Repeat the division as long as remainder is nonzero
     while remainder != 0:
+        
+        # store the larger number temporarily
         temp = larger
+        
+        # the smaller number becomes the new larger number
         larger = smaller
+        
+        # the remainder becomes the new smaller number
         smaller = remainder
+        
+        # compute the new remainder
         remainder = larger - ((larger // smaller) * smaller)
         
-    # if the smaller number divides the larger, then the remainder is zero and the gcd equals the smaller number
+    # when the remainder is zero, the gcd equals the smaller number
     if remainder == 0:
         return smaller
 
