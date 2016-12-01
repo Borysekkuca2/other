@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    GCD & LCM
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('euclid') }}" method="post">
+        <fieldset>
+            <div>
+                The gcd of {{x}} and {{y}} is {{gcd}}.
+            </div>
+            <div>
+                The lcm of {{x}} and {{y}} is {{lcm}}.
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
