@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Polynomials
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('polynomials') }}" method="post">
+        <fieldset>
+            <div>
+                On this website, you can divide one polynomial by another and compute their quotient and remainder. 
+            </div>
+            <div>
+                First type the degrees!
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="first" placeholder="degree of dividend" type="text"/>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="second" placeholder="degree of divisor" type="text"/>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Compute</button>
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}
